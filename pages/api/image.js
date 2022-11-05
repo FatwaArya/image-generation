@@ -1,0 +1,23 @@
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
+const { Configuration, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+export default async function handler(req, res) {
+  if (req.method === "POST") {
+    //Create Image
+    const { prompt } = req.body;
+    const response = await openai.createImage({
+      prompt,
+      n: 1,
+      size: "256x256",
+    });
+    const image = response.data.data[0];
+    res.status(200).json({ image });
+  } else {
+    res.status(404).json({ error: "Not found" });
+  }
+}
