@@ -41,9 +41,11 @@ function CreateImage({ prompt }) {
           <Loading />
         ) : (
           image.map((url) => (
-            <div className="flex flex-col items-center justify-center outline">
+            <div
+              className="flex flex-col items-center justify-center outline"
+              key={url}
+            >
               <Image
-                key={url}
                 src={url}
                 alt="Picture of the author"
                 width={256}
