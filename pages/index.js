@@ -103,8 +103,9 @@ export default function Page() {
           </form>
         </div>
       </div>
-
-      <CreateImage prompt={prompt} />
+      <div className="pt-8">
+        <CreateImage prompt={prompt} />
+      </div>
     </div>
   );
 }
