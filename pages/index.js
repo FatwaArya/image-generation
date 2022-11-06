@@ -33,24 +33,25 @@ function CreateImage({ prompt }) {
     }
   }, [prompt]);
 
+  // return card
   return (
-    <div className="flex flex-row items-center gap-4">
-      {loading ? (
-        <Loading />
-      ) : (
-        image.map((img) => (
-          <div>
-            <Image
-              className="rounded-lg"
-              key={img}
-              src={img}
-              alt="Picture of the author"
-              width={256}
-              height={256}
-            />
-          </div>
-        ))
-      )}
+    <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-wrap justify-center">
+        {loading ? (
+          <Loading />
+        ) : (
+          image.map((url) => (
+            <div className="flex flex-col items-center justify-center outline">
+              <Image
+                src={url}
+                alt="Picture of the author"
+                width={256}
+                height={256}
+              />
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }
@@ -65,7 +66,6 @@ export default function Page() {
     };
     //set prompt
     setPrompt(data.prompt);
-    //create image
   };
 
   return (
@@ -73,17 +73,23 @@ export default function Page() {
       <Head>
         <title>Image Generation Powered by DALL-E</title>
       </Head>
-      <div className="mx-64 pt-16">
-        <div className="form-control w-full">
-          <p className="text-sm mb-2">Start with detail description</p>
-          <form className="input-group input-group-md" onSubmit={handleSubmit}>
+      <div className="pt-16">
+        <div className="form-control">
+          <p className="text-sm sm:text-md mb-2 mx-auto">
+            Start with detail description
+          </p>
+          <form
+            className="input-group input-group-md flex flex-row justify-center"
+            onSubmit={handleSubmit}
+          >
             <input
               type="text"
               placeholder="An Impressionist oil painting of sunflowers in a purple vase"
               maxLength={100}
               id="prompt"
-              className="input input-bordered w-full input-md outline-none bg-slate-200"
+              className="input input-bordered input-md outline-none bg-slate-200 w-3/5"
               required
+              autoComplete="off"
             />
             <button
               className="btn btn-md outline-none bg-slate-200"
@@ -94,9 +100,8 @@ export default function Page() {
           </form>
         </div>
       </div>
-      <div className="mx-64 pt-16">
-        <CreateImage prompt={prompt} />
-      </div>
+
+      <CreateImage prompt={prompt} />
     </div>
   );
 }
