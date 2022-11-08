@@ -21,7 +21,6 @@ function CreateImage({ prompt }) {
         setLoading(true);
         const response = await axios.post("/api/image", { prompt });
         setImage((url) => [
-          ...url,
           response.data.image.data[0].url,
           response.data.image.data[1].url,
           response.data.image.data[2].url,
