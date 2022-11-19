@@ -20,7 +20,7 @@ export default function Page() {
         <title>Image Generation Powered by DALL-E</title>
       </Head>
       <div className="pt-16">
-        <div className="flex justify-center mb-4 sm:justify-around sm:-ml-3 md:-ml-6 lg:-ml-8">
+        <div className="flex justify-center mb-4 sm:justify-around sm:-ml-3 md:-ml-6 lg:-ml-16">
           <div className="text-sm sm:text-md">
             Start with detail description
             <button className="btn btn-xs glass mx-2 text-bold hover:bg-sky-700 hover:text-white">
