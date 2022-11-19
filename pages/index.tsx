@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { FormEvent,  useState } from "react";
+import { FormEvent, useState } from "react";
 import CreateImage from "../components/createImage";
 export default function Page() {
   const [prompt, setPrompt] = useState<String>("");
@@ -20,17 +20,16 @@ export default function Page() {
         <title>Image Generation Powered by DALL-E</title>
       </Head>
       <div className="pt-16">
-        <div className="form-control">
-          <div className="flex justify-between items-center mb-4 ">
-             <span className="text-sm sm:text-md">
+        <div className="flex justify-center mb-4 sm:justify-around sm:-ml-3 md:-ml-6 lg:-ml-8">
+          <div className="text-sm sm:text-md">
             Start with detail description
-         <button className="btn btn-xs glass mx-2">
-          Surprise me
-         </button>
-          </span>
-          
+            <button className="btn btn-xs glass mx-2 text-bold hover:bg-sky-700 hover:text-white">
+              Surprise me
+            </button>
           </div>
-          
+          <div></div>
+        </div>
+        <div className="form-control">
           <form
             className="input-group input-group-md flex flex-row justify-center"
             onSubmit={handleSubmit}

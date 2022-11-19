@@ -20,7 +20,6 @@ export default async (req: NextApiRequest, res: NextApiResponse<ImagesResponse |
           n: 3,
           size: "256x256",
         });
-        // console.log(response.data.data);
     res.status(200).json(response.data);
       } else {
         res.status(404).json({ error:"Not found" });
